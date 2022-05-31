@@ -18,6 +18,8 @@ const HomePage = ({ tweets }) => {
 
     if(!session) return router.push('/');
 
+    if(session && !session.user.name) router.push('/setup')
+
     return (
         <>
             <NewTweet />
