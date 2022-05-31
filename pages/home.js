@@ -10,8 +10,6 @@ const HomePage = ({ tweets }) => {
     const { data: session, status } = useSession();
     const router = useRouter();
 
-    console.log(tweets);
-
     const loading = status === 'loading';
 
     if(loading) return null;

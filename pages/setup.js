@@ -49,7 +49,7 @@ const Setup = () => {
                 Save
             </button>
         </form>
-    )
-}
+    );
+};
 
 export default Setup;
