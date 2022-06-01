@@ -1,5 +1,6 @@
 import timeago from "lib/timeago";
 import Image from 'next/image';
+import Link from "next/link";
 
 export const Tweet = ({ tweet }) => {
     return (
@@ -20,11 +21,13 @@ export const Tweet = ({ tweet }) => {
                         </div>
                         <div className="ml-3 -mt-6">
                             <p className="">
-                                <a>
-                                    <span className="text-base front-medium leading-6 color-primary hover:underline">
-                                        { tweet.author.email }
-                                    </span>
-                                </a>
+                                <Link href={`/${ tweet.author.name }`}>
+                                    <a>
+                                        <span className="text-base front-medium leading-6 color-primary hover:underline">
+                                            { tweet.author.email }
+                                        </span>
+                                    </a>
+                                </Link>
                                 <span className="pl-1 text-sm font-light leading-5 color-dimmed">
                                     <a className="hover:underline">
                                         { timeago.format( new Date(tweet.createAt)) }
