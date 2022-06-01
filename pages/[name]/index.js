@@ -12,7 +12,6 @@ const UserProfile = ({ name, tweets }) => {
     );
 };
 
-
 export const getServerSideProps = async({ params }) => {
     
     let tweets = await getUserTweets(params.name, prisma);

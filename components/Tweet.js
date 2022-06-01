@@ -29,9 +29,11 @@ export const Tweet = ({ tweet }) => {
                                     </a>
                                 </Link>
                                 <span className="pl-1 text-sm font-light leading-5 color-dimmed">
-                                    <a className="hover:underline">
-                                        { timeago.format( new Date(tweet.createAt)) }
-                                    </a>
+                                    <Link href={ `/${tweet.author.name}/status/${ tweet.id }`}>
+                                        <a className="hover:underline">
+                                            { timeago.format( new Date(tweet.createAt)) }
+                                        </a>
+                                    </Link>
                                 </span>
                             </p>
 
