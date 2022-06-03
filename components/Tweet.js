@@ -2,7 +2,7 @@ import timeago from "lib/timeago";
 import Image from 'next/image';
 import Link from "next/link";
 
-export const Tweet = ({ tweet }) => {
+export const Tweet = ({ tweet, nolink }) => {
     return (
         <div className="mb-4">
             <div className="flex flex-shrink-0 p-4 pb-0">
@@ -29,11 +29,20 @@ export const Tweet = ({ tweet }) => {
                                     </a>
                                 </Link>
                                 <span className="pl-1 text-sm font-light leading-5 color-dimmed">
-                                    <Link href={ `/${tweet.author.name}/status/${ tweet.id }`}>
+
+                                    { nolink ? (
+
                                         <a className="hover:underline">
                                             { timeago.format( new Date(tweet.createAt)) }
-                                        </a>
-                                    </Link>
+                                        </a> 
+                                    ) : (
+                                        <Link href={ `/${tweet.author.name}/status/${ tweet.id }`}>
+                                            <a className="hover:underline">
+                                                { timeago.format( new Date(tweet.createAt)) }
+                                            </a>
+                                        </Link>
+                                    )}
+                                    
                                 </span>
                             </p>
 
